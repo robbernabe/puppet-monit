@@ -1,0 +1,18 @@
+set daemon 120                    # check services at 2-minute intervals
+
+set logfile /var/log/monit.log
+
+set idfile /var/lib/monit/id
+
+set statefile /var/lib/monit/state
+
+set eventqueue
+    basedir /var/lib/monit/events # set the base directory where events will be stored
+    slots 100                     # optionally limit the queue size
+
+include /etc/monit/conf.d/*
+
+# Email Alert Configuration
+set mailserver localhost port 25
+set mail-format { from: monit@<%= @fqdn %> }
+set alert <%= @alert_email %>
