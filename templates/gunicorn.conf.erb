@@ -1,2 +1,2 @@
-check process gunicorn with pidfile /var/www/servicekit/run/gunicorn.pid
+check process gunicorn with pidfile <%= @app_path %>/run/gunicorn.pid
   if failed host 127.0.0.1 port 8000 then alert

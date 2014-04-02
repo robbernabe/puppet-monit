@@ -1,4 +1,4 @@
-class monit ( $alert_email=undef ) {
+class monit ( $alert_email=undef, $app_path=undef ) {
 
   class { 'monit::package':
     notify => Class['monit::service'],
